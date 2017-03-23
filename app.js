@@ -45,12 +45,13 @@ app.post('/webhook', function (req, res) {
     // Iterate over each entry - there may be multiple if batched
     data.entry.forEach(function(entry) {
       var pageID = entry.id;
+      var userID
       var timeOfEvent = entry.time;
 
       // Iterate over each messaging event
       entry.messaging.forEach(function(event) {
         if (event.message) {
-          chatService.sendTextMessage(pageID, "gros fdp");
+          chatService.sendTextMessage(event.sender.ip, "gros fdp");
         } else {
           console.log("Webhook received unknown event: ", event);
         }
