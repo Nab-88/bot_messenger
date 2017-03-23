@@ -5,6 +5,8 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
+var chatService = require('./server/chatService');
+
 var homepage = require('./routes/index');
 
 var app = express();
@@ -32,6 +34,10 @@ app.get('/webhook', function(req, res) {
     console.error("Failed validation. Make sure the validation tokens match.");
     res.sendStatus(403);          
   }  
+});
+
+app.post('/webhook', function(req, res) {
+	chatService.sendTextMessage(req.sender.id, "gros fdp");
 });
 
 // catch 404 and forward to error handler
