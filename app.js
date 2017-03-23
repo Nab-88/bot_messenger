@@ -6,8 +6,6 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
 var homepage = require('./routes/index');
-var webhook = require('./routes/webhook');
-
 
 var app = express();
 
