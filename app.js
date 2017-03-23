@@ -45,7 +45,6 @@ app.post('/webhook', function (req, res) {
     // Iterate over each entry - there may be multiple if batched
     data.entry.forEach(function(entry) {
       var pageID = entry.id;
-      var userID
       var timeOfEvent = entry.time;
 
       // Iterate over each messaging event
